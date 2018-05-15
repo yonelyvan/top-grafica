@@ -16,6 +16,7 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QSlider>
 #include <QtWidgets/QStatusBar>
@@ -27,6 +28,7 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
+    QAction *actionAbrir;
     QWidget *centralWidget;
     QSlider *horizontalSlider;
     QLabel *label;
@@ -34,6 +36,7 @@ public:
     QLabel *label_2;
     QSlider *horizontalSlider_2;
     QMenuBar *menuBar;
+    QMenu *menuArchivo;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
@@ -41,29 +44,31 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(1280, 720);
+        MainWindow->resize(832, 475);
+        actionAbrir = new QAction(MainWindow);
+        actionAbrir->setObjectName(QStringLiteral("actionAbrir"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         horizontalSlider = new QSlider(centralWidget);
         horizontalSlider->setObjectName(QStringLiteral("horizontalSlider"));
-        horizontalSlider->setGeometry(QRect(1110, 67, 160, 16));
+        horizontalSlider->setGeometry(QRect(670, 47, 160, 16));
         horizontalSlider->setMinimum(-255);
         horizontalSlider->setMaximum(255);
         horizontalSlider->setOrientation(Qt::Horizontal);
         label = new QLabel(centralWidget);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(1110, 40, 71, 21));
+        label->setGeometry(QRect(670, 20, 71, 21));
         label->setScaledContents(false);
         label_img = new QLabel(centralWidget);
         label_img->setObjectName(QStringLiteral("label_img"));
-        label_img->setGeometry(QRect(10, 10, 1071, 671));
-        label_img->setScaledContents(false);
+        label_img->setGeometry(QRect(200, 10, 421, 341));
+        label_img->setScaledContents(true);
         label_2 = new QLabel(centralWidget);
         label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(1110, 90, 59, 14));
+        label_2->setGeometry(QRect(670, 70, 59, 14));
         horizontalSlider_2 = new QSlider(centralWidget);
         horizontalSlider_2->setObjectName(QStringLiteral("horizontalSlider_2"));
-        horizontalSlider_2->setGeometry(QRect(1110, 110, 160, 16));
+        horizontalSlider_2->setGeometry(QRect(670, 90, 160, 16));
         horizontalSlider_2->setMinimum(1);
         horizontalSlider_2->setMaximum(100);
         horizontalSlider_2->setValue(50);
@@ -71,7 +76,9 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 1280, 19));
+        menuBar->setGeometry(QRect(0, 0, 832, 18));
+        menuArchivo = new QMenu(menuBar);
+        menuArchivo->setObjectName(QStringLiteral("menuArchivo"));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -79,6 +86,9 @@ public:
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QStringLiteral("statusBar"));
         MainWindow->setStatusBar(statusBar);
+
+        menuBar->addAction(menuArchivo->menuAction());
+        menuArchivo->addAction(actionAbrir);
 
         retranslateUi(MainWindow);
 
@@ -88,9 +98,11 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
+        actionAbrir->setText(QApplication::translate("MainWindow", "Abrir", 0));
         label->setText(QApplication::translate("MainWindow", "Brillo", 0));
         label_img->setText(QString());
         label_2->setText(QApplication::translate("MainWindow", "Contraste", 0));
+        menuArchivo->setTitle(QApplication::translate("MainWindow", "archivo", 0));
     } // retranslateUi
 
 };

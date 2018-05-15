@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
+#include <QFileDialog>
 namespace Ui {
 class MainWindow;
 }
@@ -21,6 +21,8 @@ private slots:
     void on_horizontalSlider_sliderMoved(int position);
 
     void on_horizontalSlider_2_sliderMoved(int position);
+
+    void on_actionAbrir_triggered(QString rutaImagen="");
 
 private:
     Ui::MainWindow *ui;

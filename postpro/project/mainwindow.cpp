@@ -12,8 +12,7 @@ using namespace std;
 using namespace cv;
 using namespace std;
 
-QImage MatToQImage(const Mat& mat)
-{
+QImage MatToQImage(const Mat& mat){
     // 8-bits unsigned, NO. OF CHANNELS=1
     if(mat.type()==CV_8UC1)
     {
@@ -37,8 +36,7 @@ QImage MatToQImage(const Mat& mat)
         QImage img(qImageBuffer, mat.cols, mat.rows, mat.step, QImage::Format_RGB888);
         return img.rgbSwapped();
     }
-    else
-    {
+    else{
         //qDebug() << "ERROR: Mat could not be converted to QImage.";
         return QImage();
     }
@@ -63,7 +61,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //imshow("img_name", img);
     //waitKey();
 
-    Mat Mimg = imread("/home/n/Desktop/postpro/project/imgs/img.jpg");
+    Mat Mimg = imread("/home/n/Desktop/grafica/top-grafica/postpro/project/imgs/img.jpg");
     QImage image = MatToQImage(Mimg);
     ui->label_img->setPixmap(QPixmap::fromImage(image));
 
@@ -111,7 +109,7 @@ Mat contraste(Mat image, int value){
 
 void MainWindow::on_horizontalSlider_sliderMoved(int position){
     cout<<position<<endl;
-    Mat Mimg = imread("/home/n/Desktop/postpro/project/imgs/img.jpg");
+    Mat Mimg = imread("/home/n/Desktop/grafica/top-grafica/postpro/project/imgs/img.jpg");
     Mat Mimg2 = brillo(Mimg ,position);
     QImage image = MatToQImage(Mimg2);
     ui->label_img->setPixmap(QPixmap::fromImage(image));
@@ -119,8 +117,16 @@ void MainWindow::on_horizontalSlider_sliderMoved(int position){
 
 void MainWindow::on_horizontalSlider_2_sliderMoved(int position){
     cout<<position<<endl;
-    Mat Mimg = imread("/home/n/Desktop/postpro/project/imgs/img.jpg");
+    Mat Mimg = imread("/home/n/Desktop/grafica/top-grafica/postpro/project/imgs/img.jpg");
     Mat Mimg2 = contraste(Mimg ,position);
     QImage image = MatToQImage(Mimg2);
     ui->label_img->setPixmap(QPixmap::fromImage(image));
+}
+
+void MainWindow::on_actionAbrir_triggered(QString rutaImagen ){
+    //Abrir ruta y seleccionar tipo de imagen
+    rutaImagen = QFileDialog::getOpenFileName(this, tr("Abrir imagen"), QString(),
+    //tr("Imagen BMP (.bmp);;Todos los archivos ();;"));
+    tr("Imagen BMP (.jpg);;Todos los archivos ();;"));
+    cout<<rutaImagen.toUtf8().constData()<<endl;
 }
