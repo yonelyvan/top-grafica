@@ -33,7 +33,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = project1.0.0
-DISTDIR = /home/u/Desktop/postpro/project/.tmp/project1.0.0
+DISTDIR = /home/n/Desktop/grafica/top-grafica/postpro/project/.tmp/project1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-rpath,/opt/Qt5.7.0/5.7/gcc_64/lib
 LIBS          = $(SUBLIBS) `pkg-config opencv --cflags --libs` -L/opt/Qt5.7.0/5.7/gcc_64/lib -lQt5Widgets -L/usr/lib64 -lQt5Gui -lQt5Core -lGL -lpthread 
@@ -679,9 +679,14 @@ moc_mainwindow.cpp: /opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/QMainWindow \
 		/opt/Qt5.7.0/5.7/gcc_64/include/QtGui/qtouchdevice.h \
 		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/qtabwidget.h \
 		/opt/Qt5.7.0/5.7/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/QFileDialog \
+		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/qfiledialog.h \
+		/opt/Qt5.7.0/5.7/gcc_64/include/QtCore/qdir.h \
+		/opt/Qt5.7.0/5.7/gcc_64/include/QtCore/qfileinfo.h \
+		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/qdialog.h \
 		mainwindow.h \
 		/opt/Qt5.7.0/5.7/gcc_64/bin/moc
-	/opt/Qt5.7.0/5.7/gcc_64/bin/moc $(DEFINES) -I/opt/Qt5.7.0/5.7/gcc_64/mkspecs/linux-g++ -I/home/u/Desktop/postpro/project -I/opt/Qt5.7.0/5.7/gcc_64/include -I/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets -I/opt/Qt5.7.0/5.7/gcc_64/include/QtGui -I/opt/Qt5.7.0/5.7/gcc_64/include/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include mainwindow.h -o moc_mainwindow.cpp
+	/opt/Qt5.7.0/5.7/gcc_64/bin/moc $(DEFINES) -I/opt/Qt5.7.0/5.7/gcc_64/mkspecs/linux-g++ -I/home/n/Desktop/grafica/top-grafica/postpro/project -I/opt/Qt5.7.0/5.7/gcc_64/include -I/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets -I/opt/Qt5.7.0/5.7/gcc_64/include/QtGui -I/opt/Qt5.7.0/5.7/gcc_64/include/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include mainwindow.h -o moc_mainwindow.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -803,6 +808,11 @@ main.o: main.cpp mainwindow.h \
 		/opt/Qt5.7.0/5.7/gcc_64/include/QtGui/qtouchdevice.h \
 		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/qtabwidget.h \
 		/opt/Qt5.7.0/5.7/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/QFileDialog \
+		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/qfiledialog.h \
+		/opt/Qt5.7.0/5.7/gcc_64/include/QtCore/qdir.h \
+		/opt/Qt5.7.0/5.7/gcc_64/include/QtCore/qfileinfo.h \
+		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/qdialog.h \
 		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/QApplication \
 		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/qapplication.h \
 		/opt/Qt5.7.0/5.7/gcc_64/include/QtCore/qcoreapplication.h \
@@ -913,6 +923,11 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		/opt/Qt5.7.0/5.7/gcc_64/include/QtGui/qtouchdevice.h \
 		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/qtabwidget.h \
 		/opt/Qt5.7.0/5.7/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/QFileDialog \
+		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/qfiledialog.h \
+		/opt/Qt5.7.0/5.7/gcc_64/include/QtCore/qdir.h \
+		/opt/Qt5.7.0/5.7/gcc_64/include/QtCore/qfileinfo.h \
+		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/qdialog.h \
 		ui_mainwindow.h \
 		/opt/Qt5.7.0/5.7/gcc_64/include/QtCore/QVariant \
 		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/QAction \
@@ -946,15 +961,17 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/qrubberband.h \
 		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/QLabel \
 		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/QMenu \
+		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/qmenu.h \
 		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/QMenuBar \
 		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/qmenubar.h \
-		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/qmenu.h \
 		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/QSlider \
 		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/QStatusBar \
 		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/qstatusbar.h \
 		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/QToolBar \
 		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/qtoolbar.h \
-		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/QWidget
+		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/QWidget \
+		funciones.cpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 

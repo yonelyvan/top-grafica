@@ -3,13 +3,27 @@
 
 #include <QMainWindow>
 #include <QFileDialog>
+#include <QWidget>
+
+
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
+using namespace cv;
+
+#include <iostream>
+using namespace std;
+
+
+
+
 namespace Ui {
 class MainWindow;
 }
 
-class MainWindow : public QMainWindow
-{
+class MainWindow : public QMainWindow{
     Q_OBJECT
+private:
+    string path_img="/home/n/Desktop/grafica/top-grafica/postpro/project/imgs/img.jpg";
 
 public:
     explicit MainWindow(QWidget *parent = 0);

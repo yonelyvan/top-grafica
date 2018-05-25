@@ -35,6 +35,7 @@ public:
     QLabel *label_img;
     QLabel *label_2;
     QSlider *horizontalSlider_2;
+    QLabel *redH;
     QMenuBar *menuBar;
     QMenu *menuArchivo;
     QToolBar *mainToolBar;
@@ -62,6 +63,7 @@ public:
         label_img = new QLabel(centralWidget);
         label_img->setObjectName(QStringLiteral("label_img"));
         label_img->setGeometry(QRect(200, 10, 421, 341));
+        label_img->setStyleSheet(QStringLiteral("border: 1px solid black"));
         label_img->setScaledContents(true);
         label_2 = new QLabel(centralWidget);
         label_2->setObjectName(QStringLiteral("label_2"));
@@ -73,6 +75,9 @@ public:
         horizontalSlider_2->setMaximum(100);
         horizontalSlider_2->setValue(50);
         horizontalSlider_2->setOrientation(Qt::Horizontal);
+        redH = new QLabel(centralWidget);
+        redH->setObjectName(QStringLiteral("redH"));
+        redH->setGeometry(QRect(10, 20, 171, 81));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -102,6 +107,7 @@ public:
         label->setText(QApplication::translate("MainWindow", "Brillo", 0));
         label_img->setText(QString());
         label_2->setText(QApplication::translate("MainWindow", "Contraste", 0));
+        redH->setText(QString());
         menuArchivo->setTitle(QApplication::translate("MainWindow", "archivo", 0));
     } // retranslateUi
 
