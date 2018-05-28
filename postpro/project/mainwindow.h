@@ -23,7 +23,7 @@ class MainWindow;
 class MainWindow : public QMainWindow{
     Q_OBJECT
 private:
-    string path_img="/home/n/Desktop/grafica/top-grafica/postpro/project/imgs/img.jpg";
+    string path_img="/home/u/Desktop/postpro/top-grafica/postpro/project/imgs/img.jpg";
 
 public:
     explicit MainWindow(QWidget *parent = 0);
@@ -37,6 +37,7 @@ private slots:
     void on_horizontalSlider_2_sliderMoved(int position);
 
     void on_actionAbrir_triggered(QString rutaImagen="");
+    void actualizar_vista(Mat Mimg);
 
 private:
     Ui::MainWindow *ui;

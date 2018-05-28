@@ -16,10 +16,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     Mat Mimg = imread(path_img);
-    QImage image = MatToQImage(Mimg);
-    ui->label_img->setPixmap(QPixmap::fromImage(image));
-
-
+    actualizar_vista(Mimg);
 }
 
 MainWindow::~MainWindow(){
@@ -31,16 +28,14 @@ void MainWindow::on_horizontalSlider_sliderMoved(int position){
     cout<<position<<endl;
     Mat Mimg = imread(path_img);
     Mat Mimg2 = brillo(Mimg ,position);
-    QImage image = MatToQImage(Mimg2);
-    ui->label_img->setPixmap(QPixmap::fromImage(image));
+    actualizar_vista(Mimg2);
 }
 
 void MainWindow::on_horizontalSlider_2_sliderMoved(int position){
     cout<<position<<endl;
     Mat Mimg = imread(path_img);
     Mat Mimg2 = contraste(Mimg ,position);
-    QImage image = MatToQImage(Mimg2);
-    ui->label_img->setPixmap(QPixmap::fromImage(image));
+    actualizar_vista(Mimg2);
 }
 
 void MainWindow::on_actionAbrir_triggered(QString rutaImagen ){//Abrir ruta y seleccionar tipo de imagen
@@ -49,9 +44,16 @@ void MainWindow::on_actionAbrir_triggered(QString rutaImagen ){//Abrir ruta y se
     path_img = rutaImagen.toUtf8().constData();
 
     Mat Mimg = imread(path_img);
-    QImage image = MatToQImage(Mimg);
-    ui->label_img->setPixmap(QPixmap::fromImage(image));
+    actualizar_vista(Mimg);
 }
 
+void MainWindow::actualizar_vista(Mat Mimg){
+    QImage image = MatToQImage(Mimg);
+    ui->label_img->setPixmap(QPixmap::fromImage(image));
+
+    Mat img = get_histograma(Mimg);
+    QImage hist = MatToQImage(img);
+    ui->label_histogram->setPixmap(QPixmap::fromImage(hist));//histograma
+}
 
 

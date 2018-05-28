@@ -35,7 +35,8 @@ public:
     QLabel *label_img;
     QLabel *label_2;
     QSlider *horizontalSlider_2;
-    QLabel *redH;
+    QLabel *label_histogram;
+    QLabel *label_3;
     QMenuBar *menuBar;
     QMenu *menuArchivo;
     QToolBar *mainToolBar;
@@ -45,43 +46,47 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(832, 475);
+        MainWindow->resize(1271, 749);
         actionAbrir = new QAction(MainWindow);
         actionAbrir->setObjectName(QStringLiteral("actionAbrir"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         horizontalSlider = new QSlider(centralWidget);
         horizontalSlider->setObjectName(QStringLiteral("horizontalSlider"));
-        horizontalSlider->setGeometry(QRect(670, 47, 160, 16));
+        horizontalSlider->setGeometry(QRect(1100, 47, 160, 16));
         horizontalSlider->setMinimum(-255);
         horizontalSlider->setMaximum(255);
         horizontalSlider->setOrientation(Qt::Horizontal);
         label = new QLabel(centralWidget);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(670, 20, 71, 21));
+        label->setGeometry(QRect(1100, 20, 71, 21));
         label->setScaledContents(false);
         label_img = new QLabel(centralWidget);
         label_img->setObjectName(QStringLiteral("label_img"));
-        label_img->setGeometry(QRect(200, 10, 421, 341));
+        label_img->setGeometry(QRect(250, 40, 811, 571));
         label_img->setStyleSheet(QStringLiteral("border: 1px solid black"));
         label_img->setScaledContents(true);
         label_2 = new QLabel(centralWidget);
         label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(670, 70, 59, 14));
+        label_2->setGeometry(QRect(1100, 70, 59, 14));
         horizontalSlider_2 = new QSlider(centralWidget);
         horizontalSlider_2->setObjectName(QStringLiteral("horizontalSlider_2"));
-        horizontalSlider_2->setGeometry(QRect(670, 90, 160, 16));
+        horizontalSlider_2->setGeometry(QRect(1100, 90, 160, 16));
         horizontalSlider_2->setMinimum(1);
         horizontalSlider_2->setMaximum(100);
         horizontalSlider_2->setValue(50);
         horizontalSlider_2->setOrientation(Qt::Horizontal);
-        redH = new QLabel(centralWidget);
-        redH->setObjectName(QStringLiteral("redH"));
-        redH->setGeometry(QRect(10, 20, 171, 81));
+        label_histogram = new QLabel(centralWidget);
+        label_histogram->setObjectName(QStringLiteral("label_histogram"));
+        label_histogram->setGeometry(QRect(10, 40, 231, 171));
+        label_histogram->setScaledContents(true);
+        label_3 = new QLabel(centralWidget);
+        label_3->setObjectName(QStringLiteral("label_3"));
+        label_3->setGeometry(QRect(60, 90, 59, 14));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 832, 18));
+        menuBar->setGeometry(QRect(0, 0, 1271, 19));
         menuArchivo = new QMenu(menuBar);
         menuArchivo->setObjectName(QStringLiteral("menuArchivo"));
         MainWindow->setMenuBar(menuBar);
@@ -107,7 +112,8 @@ public:
         label->setText(QApplication::translate("MainWindow", "Brillo", 0));
         label_img->setText(QString());
         label_2->setText(QApplication::translate("MainWindow", "Contraste", 0));
-        redH->setText(QString());
+        label_histogram->setText(QString());
+        label_3->setText(QString());
         menuArchivo->setTitle(QApplication::translate("MainWindow", "archivo", 0));
     } // retranslateUi
 
