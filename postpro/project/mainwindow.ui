@@ -71,9 +71,15 @@
       <height>681</height>
      </rect>
     </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <property name="tabBarAutoHide">
+     <bool>false</bool>
+    </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
-      <string>Tab 1</string>
+      <string>Exposición</string>
      </attribute>
      <widget class="QLabel" name="label">
       <property name="geometry">
@@ -148,7 +154,7 @@
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
-      <string>Tab 2</string>
+      <string>Color</string>
      </attribute>
     </widget>
    </widget>
@@ -159,7 +165,7 @@
      <x>0</x>
      <y>0</y>
      <width>1271</width>
-     <height>19</height>
+     <height>18</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuArchivo">

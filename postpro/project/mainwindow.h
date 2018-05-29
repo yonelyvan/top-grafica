@@ -23,7 +23,9 @@ class MainWindow;
 class MainWindow : public QMainWindow{
     Q_OBJECT
 private:
-    string path_img="/home/u/Desktop/postpro/top-grafica/postpro/project/imgs/img.jpg";
+    //string path_img="/home/u/Desktop/postpro/top-grafica/postpro/project/imgs/img.jpg";//PC
+    string path_img="/home/n/Desktop/grafica/top-grafica/postpro/project/imgs/img.jpg";//le
+    //string path_img="/home/u/Desktop/postpro/top-grafica/postpro/project/imgs/img.jpg";//cs
 
 public:
     explicit MainWindow(QWidget *parent = 0);
