@@ -20,6 +20,7 @@
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QSlider>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTabWidget>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
 
@@ -30,13 +31,16 @@ class Ui_MainWindow
 public:
     QAction *actionAbrir;
     QWidget *centralWidget;
-    QSlider *horizontalSlider;
-    QLabel *label;
     QLabel *label_img;
-    QLabel *label_2;
-    QSlider *horizontalSlider_2;
     QLabel *label_histogram;
     QLabel *label_3;
+    QTabWidget *tabWidget;
+    QWidget *tab;
+    QLabel *label;
+    QSlider *horizontalSlider;
+    QLabel *label_2;
+    QSlider *horizontalSlider_2;
+    QWidget *tab_2;
     QMenuBar *menuBar;
     QMenu *menuArchivo;
     QToolBar *mainToolBar;
@@ -51,31 +55,11 @@ public:
         actionAbrir->setObjectName(QStringLiteral("actionAbrir"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        horizontalSlider = new QSlider(centralWidget);
-        horizontalSlider->setObjectName(QStringLiteral("horizontalSlider"));
-        horizontalSlider->setGeometry(QRect(1100, 47, 160, 16));
-        horizontalSlider->setMinimum(-255);
-        horizontalSlider->setMaximum(255);
-        horizontalSlider->setOrientation(Qt::Horizontal);
-        label = new QLabel(centralWidget);
-        label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(1100, 20, 71, 21));
-        label->setScaledContents(false);
         label_img = new QLabel(centralWidget);
         label_img->setObjectName(QStringLiteral("label_img"));
-        label_img->setGeometry(QRect(250, 40, 811, 571));
+        label_img->setGeometry(QRect(250, 40, 791, 571));
         label_img->setStyleSheet(QStringLiteral("border: 1px solid black"));
         label_img->setScaledContents(true);
-        label_2 = new QLabel(centralWidget);
-        label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(1100, 70, 59, 14));
-        horizontalSlider_2 = new QSlider(centralWidget);
-        horizontalSlider_2->setObjectName(QStringLiteral("horizontalSlider_2"));
-        horizontalSlider_2->setGeometry(QRect(1100, 90, 160, 16));
-        horizontalSlider_2->setMinimum(1);
-        horizontalSlider_2->setMaximum(100);
-        horizontalSlider_2->setValue(50);
-        horizontalSlider_2->setOrientation(Qt::Horizontal);
         label_histogram = new QLabel(centralWidget);
         label_histogram->setObjectName(QStringLiteral("label_histogram"));
         label_histogram->setGeometry(QRect(10, 40, 231, 171));
@@ -83,6 +67,35 @@ public:
         label_3 = new QLabel(centralWidget);
         label_3->setObjectName(QStringLiteral("label_3"));
         label_3->setGeometry(QRect(60, 90, 59, 14));
+        tabWidget = new QTabWidget(centralWidget);
+        tabWidget->setObjectName(QStringLiteral("tabWidget"));
+        tabWidget->setGeometry(QRect(1050, 10, 211, 681));
+        tab = new QWidget();
+        tab->setObjectName(QStringLiteral("tab"));
+        label = new QLabel(tab);
+        label->setObjectName(QStringLiteral("label"));
+        label->setGeometry(QRect(10, 10, 71, 21));
+        label->setScaledContents(false);
+        horizontalSlider = new QSlider(tab);
+        horizontalSlider->setObjectName(QStringLiteral("horizontalSlider"));
+        horizontalSlider->setGeometry(QRect(10, 30, 181, 20));
+        horizontalSlider->setMinimum(-255);
+        horizontalSlider->setMaximum(255);
+        horizontalSlider->setOrientation(Qt::Horizontal);
+        label_2 = new QLabel(tab);
+        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setGeometry(QRect(10, 70, 59, 14));
+        horizontalSlider_2 = new QSlider(tab);
+        horizontalSlider_2->setObjectName(QStringLiteral("horizontalSlider_2"));
+        horizontalSlider_2->setGeometry(QRect(10, 90, 191, 20));
+        horizontalSlider_2->setMinimum(1);
+        horizontalSlider_2->setMaximum(100);
+        horizontalSlider_2->setValue(50);
+        horizontalSlider_2->setOrientation(Qt::Horizontal);
+        tabWidget->addTab(tab, QString());
+        tab_2 = new QWidget();
+        tab_2->setObjectName(QStringLiteral("tab_2"));
+        tabWidget->addTab(tab_2, QString());
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -109,11 +122,13 @@ public:
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
         actionAbrir->setText(QApplication::translate("MainWindow", "Abrir", 0));
-        label->setText(QApplication::translate("MainWindow", "Brillo", 0));
         label_img->setText(QString());
-        label_2->setText(QApplication::translate("MainWindow", "Contraste", 0));
         label_histogram->setText(QString());
         label_3->setText(QString());
+        label->setText(QApplication::translate("MainWindow", "Brillo", 0));
+        label_2->setText(QApplication::translate("MainWindow", "Contraste", 0));
+        tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Tab 1", 0));
+        tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Tab 2", 0));
         menuArchivo->setTitle(QApplication::translate("MainWindow", "archivo", 0));
     } // retranslateUi
 
