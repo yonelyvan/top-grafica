@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 //hist
@@ -7,6 +7,13 @@
 #include "opencv2/imgproc/imgproc.hpp"
 using namespace std;
 using namespace cv;
+#define see(X) cout<<#X<<" "<<X<<endl;
+
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<float> vf;
+typedef vector<vf> vvf;
+
 
 //suma y resta
 Mat brillo(Mat image, int value){
@@ -38,20 +45,133 @@ Mat contraste(Mat image, int value){
     return new_image;
 }
 
-//ecualizacion
-Mat ecualizacion(Mat image, int value){
-    //calcular histograma
 
+
+
+
+vvi get__vector_histograma(Mat image){
+    vvi hist_RGB(3);
+    hist_RGB[0].resize(256);
+    hist_RGB[1].resize(256);
+    hist_RGB[2].resize(256);
+    int val_color;
+    for( int y = 0; y < image.rows; y++ ){
+        for( int x = 0; x < image.cols; x++ ){
+            for (int c = 0; c < 3; ++c) {
+               val_color = image.at<Vec3b>(y,x)[c];
+               ++hist_RGB[c][val_color];
+            }
+        }
+    }
+    return hist_RGB;
+}
+
+
+//ecualizacion
+Mat equalize(Mat image, vvi hist_RGB, int value){
+    //maximos por canal del histograma RGB
+    vi max_values_RGB(3);
+    for (int c = 0; c < 3; ++c) {
+        for (int i = 0; i < 256; ++i) {
+            max_values_RGB[c] = max(max_values_RGB[c], hist_RGB[c][i]);
+        }
+    }
+    see("mejores")
+    see(max_values_RGB[0]);
+    see(max_values_RGB[1]);
+    see(max_values_RGB[2]);
+
+    //value porcentajes
+    vi val_RGB(3);
+    for (int c = 0; c < 3; ++c) {
+        val_RGB[c] = (max_values_RGB[c]*value)/100;
+    }
+    //calcular poscion min m, max M
+    vi m_rgb(3), flag_m_rgb(3,1);
+    vi M_rgb(3), flag_M_rgb(3,1);
+    for (int c = 0; c < 3; ++c) {
+        for (int i = 0; i < 255; ++i) {
+            if( hist_RGB[c][i] > val_RGB[c] && flag_m_rgb[c] ){//mayor que el %
+                m_rgb[c]=i;
+                flag_m_rgb[c]=0;
+            }
+            if( hist_RGB[c][255-i] > val_RGB[c] && flag_M_rgb[c] ){//mayor que el %
+                M_rgb[c]=255-i;
+                flag_M_rgb[c]=0;
+            }
+        }
+    }
+    for (int i = 0; i < 3; ++i) {
+        see(m_rgb[i]);
+        see(M_rgb[i]);
+    }
+    //contruir imagen
     Mat new_image = Mat::zeros( image.size(), image.type() );
     for( int y = 0; y < image.rows; y++ ){
         for( int x = 0; x < image.cols; x++ ){
             for( int c = 0; c < 3; c++ ){
-                new_image.at<Vec3b>(y,x)[c] = saturate_cast<uchar>( image.at<Vec3b>(y,x)[c] + value );
+                new_image.at<Vec3b>(y,x)[c] = saturate_cast<uchar>( (image.at<Vec3b>(y,x)[c]-m_rgb[c])*(255/(M_rgb[c]-m_rgb[c]) ) );
+            }
+        }
+    }
+
+
+    return new_image;
+}
+
+
+
+
+//colores
+Mat convertir(Mat image, int value){
+    Mat new_image = Mat::zeros( image.size(), image.type() );
+    for( int y = 0; y < image.rows; y++ ){
+        for( int x = 0; x < image.cols; x++ ){
+            int temp=0;
+            for( int c = 0; c < 3; c++ ){
+                temp+=image.at<Vec3b>(y,x)[c];
+            }
+            for( int c = 0; c < 3; c++ ){
+                new_image.at<Vec3b>(y,x)[c] = saturate_cast<uchar>( temp/3 );
             }
         }
     }
     return new_image;
 }
+
+
+
+
+Mat convertir_rgb(Mat image, vf values_rgb){
+    Mat new_image = Mat::zeros( image.size(), image.type() );
+    for( int y = 0; y < image.rows; y++ ){
+        for( int x = 0; x < image.cols; x++ ){
+            int temp=0;
+            for( int c = 0; c < 3; c++ ){
+                temp+=image.at<Vec3b>(y,x)[c]*values_rgb[c];
+            }
+            for( int c = 0; c < 3; c++ ){
+                new_image.at<Vec3b>(y,x)[c] = saturate_cast<uchar>( temp );
+            }
+        }
+    }
+    return new_image;
+}
+
+//transformaciones de color
+
+Mat trasformar_color(Mat image, vf values_rgb){
+    Mat new_image = Mat::zeros( image.size(), image.type() );
+    for( int y = 0; y < image.rows; y++ ){
+        for( int x = 0; x < image.cols; x++ ){
+            for( int c = 0; c < 3; c++ ){
+                new_image.at<Vec3b>(y,x)[c] = saturate_cast<uchar>( image.at<Vec3b>(y,x)[c] * values_rgb[c]);
+            }
+        }
+    }
+    return new_image;
+}
+
 
 
 
