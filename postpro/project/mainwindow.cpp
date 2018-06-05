@@ -14,11 +14,11 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow){
     ui->setupUi(this);
-
-    Mat Mimg = imread(path_img);
-    actualizar_vista(Mimg);
+    M_img = imread(path_img);
+    M_img_temp = M_img;
+    actualizar_vista(M_img);
     /*precalcular histograma*/
-    histograma_RGB = get__vector_histograma(Mimg);
+    histograma_RGB = get__vector_histograma(M_img);
 }
 
 MainWindow::~MainWindow(){
@@ -27,25 +27,32 @@ MainWindow::~MainWindow(){
 
 //brillo
 void MainWindow::on_horizontalSlider_sliderMoved(int position){
-    cout<<position<<endl;
-    Mat Mimg = imread(path_img);
-    Mat Mimg2 = brillo(Mimg ,position);
-    actualizar_vista(Mimg2);
+    if(flag != "brillo"){
+        M_img = M_img_temp;
+        flag  = "brillo";
+    }
+    M_img_temp = brillo(M_img ,position);
+    actualizar_vista(M_img_temp);
 }
 
 //contraste
 void MainWindow::on_horizontalSlider_2_sliderMoved(int position){
-    cout<<position<<endl;
-    Mat Mimg = imread(path_img);
-    Mat Mimg2 = contraste(Mimg ,position);
-    actualizar_vista(Mimg2);
+    if(flag != "contraste"){
+        M_img = M_img_temp;
+        flag  = "contraste";
+    }
+    M_img_temp = contraste(M_img ,position);
+    actualizar_vista(M_img_temp);
 }
 //ecualizar
 void MainWindow::on_hs_equalize_sliderMoved(int position){
-    cout<<position<<endl;
-    Mat Mimg = imread(path_img);
-    Mat Mimg2 = equalize(Mimg ,histograma_RGB,position);
-    actualizar_vista(Mimg2);
+    if(flag != "ecualizar"){
+        M_img = M_img_temp;
+        flag  = "ecualizar";
+        histograma_RGB = get__vector_histograma(M_img);
+    }
+    M_img_temp = equalize(M_img ,histograma_RGB,position);
+    actualizar_vista(M_img_temp);
 }
 
 
@@ -57,8 +64,9 @@ void MainWindow::on_actionAbrir_triggered(QString rutaImagen ){//Abrir ruta y se
     tr("Images (*.png *.xpm *.jpg)"));
     path_img = rutaImagen.toUtf8().constData();
 
-    Mat Mimg = imread(path_img);
-    actualizar_vista(Mimg);
+    M_img = imread(path_img);
+    M_img_temp = M_img;
+    actualizar_vista(M_img);
 }
 
 //actualizar vista {histograma, imagen}
@@ -85,8 +93,9 @@ void MainWindow::on_pushButton_2_clicked(){
 }
 
 void MainWindow::restart_interfaz(){
-    Mat Mimg = imread(path_img);
-    actualizar_vista(Mimg);
+    M_img = imread(path_img);
+    M_img_temp = M_img;
+    actualizar_vista(M_img);
     ui->horizontalSlider_convR->setValue(50);
     ui->horizontalSlider_convG->setValue(50);
     ui->horizontalSlider_convB->setValue(50);
@@ -102,9 +111,13 @@ void MainWindow::restart_interfaz(){
 
 
 void MainWindow::on_pushButton_3_clicked(){
-    Mat Mimg = imread(path_img);
-    Mat Mimg2 = convertir(Mimg ,1);
-    actualizar_vista(Mimg2);
+    //Mat Mimg = imread(path_img);
+    if(flag != "gris1"){
+        M_img = M_img_temp;
+        flag  = "gris1";
+    }
+    M_img_temp = convertir(M_img ,1);
+    actualizar_vista(M_img_temp);
 }
 
 
@@ -135,10 +148,13 @@ void MainWindow::escala_grises(int r,int g, int b){
     values_rgb[0]=b/100.0;
     values_rgb[1]=g/100.0;
     values_rgb[2]=r/100.0;
-    Mat Mimg = imread(path_img);
-    Mat Mimg2 = convertir_rgb(Mimg,values_rgb);
-
-    actualizar_vista(Mimg2);
+    //Mat Mimg = imread(path_img);
+    if(flag != "gris2"){
+        M_img = M_img_temp;
+        flag  = "gris2";
+    }
+    M_img_temp = convertir_rgb(M_img,values_rgb);
+    actualizar_vista(M_img_temp);
 }
 //transformar color
 //trasformar_color
@@ -175,8 +191,75 @@ void MainWindow::transformaciones_color(int R, int G, int B){
     values_rgb[0]=B/100.0;
     values_rgb[1]=G/100.0;
     values_rgb[2]=R/100.0;
-    Mat Mimg = imread(path_img);
-    Mat Mimg2 = trasformar_color(Mimg,values_rgb);
+    //Mat Mimg = imread(path_img);
+    if(flag != "color1"){
+        M_img = M_img_temp;
+        flag  = "color1";
+    }
+    M_img_temp = trasformar_color(M_img,values_rgb);
+    actualizar_vista(M_img_temp);
+}
+/////////////////////////////imagenes A B
+//cargar imagen A
+void MainWindow::on_pushButton_4_clicked(){
+    QString rutaImagen = QFileDialog::getOpenFileName(this, tr("Abrir imagen"), QString(),
+    tr("Images (*.png *.xpm *.jpg)"));
+    ruta_img_A = rutaImagen.toUtf8().constData();
+    M_img_A = imread(ruta_img_A);
+    QImage image = MatToQImage(M_img_A);
+    ui->label_img_A->setPixmap(QPixmap::fromImage(image));
+}
 
-    actualizar_vista(Mimg2);
+//cargar imagen B
+void MainWindow::on_pushButton_5_clicked(){
+    QString rutaImagen = QFileDialog::getOpenFileName(this, tr("Abrir imagen"), QString(),
+    tr("Images (*.png *.xpm *.jpg)"));
+    ruta_img_B = rutaImagen.toUtf8().constData();
+    M_img_B = imread(ruta_img_B);
+    QImage image = MatToQImage(M_img_B);
+    ui->label_img_B->setPixmap(QPixmap::fromImage(image));
+}
+
+
+
+//tab 2 cargar imagenes por defecto
+void MainWindow::on_tabWidget_2_tabBarClicked(int index){
+    if(index==1){
+        M_img_A = imread(ruta_img_A);
+        QImage A = MatToQImage(M_img_A);
+        ui->label_img_A->setPixmap(QPixmap::fromImage(A));
+
+        M_img_B = imread(ruta_img_B);
+        QImage B = MatToQImage(M_img_B);
+        ui->label_img_B->setPixmap(QPixmap::fromImage(B));
+    }
+}
+
+//suma A B
+void MainWindow::on_pushButton_6_clicked(){
+    Mat R = suma_AB(M_img_A,M_img_B);
+    QImage image = MatToQImage(R);
+    ui->label_result_AB->setPixmap(QPixmap::fromImage(image));
+}
+
+//resta A B
+void MainWindow::on_pushButton_7_clicked(){
+    Mat R = resta_AB(M_img_A,M_img_B);
+    QImage image = MatToQImage(R);
+    ui->label_result_AB->setPixmap(QPixmap::fromImage(image));
+}
+
+
+void MainWindow::on_pushButton_8_clicked(){
+    Mat R = suma_AB2(M_img_A,M_img_B);
+    QImage image = MatToQImage(R);
+    ui->label_result_AB->setPixmap(QPixmap::fromImage(image));
+}
+//suma a*A + (1-a)*B
+void MainWindow::on_horizontalSlider_3_sliderMoved(int position){
+    float a = position/10.0;
+    Mat R = suma_AB_a(M_img_A, M_img_B, a);
+    QImage image = MatToQImage(R);
+    ui->label_result_AB->setPixmap(QPixmap::fromImage(image));
+
 }

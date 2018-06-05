@@ -16,7 +16,7 @@ typedef vector<vf> vvf;
 
 
 //suma y resta
-Mat brillo(Mat image, int value){
+Mat brillo(Mat &image, int value){
     Mat new_image = Mat::zeros( image.size(), image.type() );
     for( int y = 0; y < image.rows; y++ ){
         for( int x = 0; x < image.cols; x++ ){
@@ -25,12 +25,12 @@ Mat brillo(Mat image, int value){
             }
         }
     }
-    return new_image;
+   return new_image;
 }
 
 
 //multiplicacion divicion
-Mat contraste(Mat image, int value){
+Mat contraste(Mat &image, int value){
     float val = ((value*2.0)/100.0);//0.0-2.0
     float beta = 50-value;
 
@@ -49,7 +49,7 @@ Mat contraste(Mat image, int value){
 
 
 
-vvi get__vector_histograma(Mat image){
+vvi get__vector_histograma(Mat &image){
     vvi hist_RGB(3);
     hist_RGB[0].resize(256);
     hist_RGB[1].resize(256);
@@ -68,7 +68,7 @@ vvi get__vector_histograma(Mat image){
 
 
 //ecualizacion
-Mat equalize(Mat image, vvi hist_RGB, int value){
+Mat equalize(Mat &image, vvi hist_RGB, int value){
     //maximos por canal del histograma RGB
     vi max_values_RGB(3);
     for (int c = 0; c < 3; ++c) {
@@ -114,8 +114,6 @@ Mat equalize(Mat image, vvi hist_RGB, int value){
             }
         }
     }
-
-
     return new_image;
 }
 
@@ -123,7 +121,7 @@ Mat equalize(Mat image, vvi hist_RGB, int value){
 
 
 //colores
-Mat convertir(Mat image, int value){
+Mat convertir(Mat &image, int value){
     Mat new_image = Mat::zeros( image.size(), image.type() );
     for( int y = 0; y < image.rows; y++ ){
         for( int x = 0; x < image.cols; x++ ){
@@ -142,7 +140,7 @@ Mat convertir(Mat image, int value){
 
 
 
-Mat convertir_rgb(Mat image, vf values_rgb){
+Mat convertir_rgb(Mat &image, vf values_rgb){
     Mat new_image = Mat::zeros( image.size(), image.type() );
     for( int y = 0; y < image.rows; y++ ){
         for( int x = 0; x < image.cols; x++ ){
@@ -160,7 +158,7 @@ Mat convertir_rgb(Mat image, vf values_rgb){
 
 //transformaciones de color
 
-Mat trasformar_color(Mat image, vf values_rgb){
+Mat trasformar_color(Mat &image, vf values_rgb){
     Mat new_image = Mat::zeros( image.size(), image.type() );
     for( int y = 0; y < image.rows; y++ ){
         for( int x = 0; x < image.cols; x++ ){
@@ -173,12 +171,56 @@ Mat trasformar_color(Mat image, vf values_rgb){
 }
 
 
+//imagenes A B
+Mat suma_AB(Mat &image_A, Mat &image_B){
+    Mat new_image = Mat::zeros( image_A.size(), image_A.type() );
+    for( int y = 0; y < image_A.rows; y++ ){
+        for( int x = 0; x < image_A.cols; x++ ){
+            for( int c = 0; c < 3; c++ ){
+                new_image.at<Vec3b>(y,x)[c] = saturate_cast<uchar>( image_A.at<Vec3b>(y,x)[c] + image_B.at<Vec3b>(y,x)[c]);
+            }
+        }
+    }
+   return new_image;
+}
 
+Mat resta_AB(Mat &image_A, Mat &image_B){
+    Mat new_image = Mat::zeros( image_A.size(), image_A.type() );
+    for( int y = 0; y < image_A.rows; y++ ){
+        for( int x = 0; x < image_A.cols; x++ ){
+            for( int c = 0; c < 3; c++ ){
+                new_image.at<Vec3b>(y,x)[c] = saturate_cast<uchar>( image_A.at<Vec3b>(y,x)[c] - image_B.at<Vec3b>(y,x)[c]);
+            }
+        }
+    }
+   return new_image;
+}
 
+//suma A+B/2
+Mat suma_AB2(Mat &image_A, Mat &image_B){
+    Mat new_image = Mat::zeros( image_A.size(), image_A.type() );
+    for( int y = 0; y < image_A.rows; y++ ){
+        for( int x = 0; x < image_A.cols; x++ ){
+            for( int c = 0; c < 3; c++ ){
+                new_image.at<Vec3b>(y,x)[c] = saturate_cast<uchar>( (image_A.at<Vec3b>(y,x)[c] + image_B.at<Vec3b>(y,x)[c])/2 );
+            }
+        }
+    }
+   return new_image;
+}
 
-
-
-
+//suma a*A + (1-a)*B
+Mat suma_AB_a(Mat &image_A, Mat &image_B, float a){
+    Mat new_image = Mat::zeros( image_A.size(), image_A.type() );
+    for( int y = 0; y < image_A.rows; y++ ){
+        for( int x = 0; x < image_A.cols; x++ ){
+            for( int c = 0; c < 3; c++ ){
+                new_image.at<Vec3b>(y,x)[c] = saturate_cast<uchar>( a*(image_A.at<Vec3b>(y,x)[c]) + (1.0-a)*(image_B.at<Vec3b>(y,x)[c]) );
+            }
+        }
+    }
+   return new_image;
+}
 
 
 
