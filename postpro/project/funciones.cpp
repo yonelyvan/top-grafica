@@ -222,11 +222,15 @@ Mat suma_AB_a(Mat &image_A, Mat &image_B, float a){
    return new_image;
 }
 
+//convoluciones
 
 
 
 
 
+
+//##################################################
+//##################################################
 QImage MatToQImage(const Mat& mat){
     // 8-bits unsigned, NO. OF CHANNELS=1
     if(mat.type()==CV_8UC1){
