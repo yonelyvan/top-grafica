@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[37];
-    char stringdata0[735];
+    QByteArrayData data[39];
+    char stringdata0[784];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -65,7 +65,9 @@ QT_MOC_LITERAL(32, 618, 28), // "on_tabWidget_2_tabBarClicked"
 QT_MOC_LITERAL(33, 647, 5), // "index"
 QT_MOC_LITERAL(34, 653, 23), // "on_pushButton_7_clicked"
 QT_MOC_LITERAL(35, 677, 23), // "on_pushButton_8_clicked"
-QT_MOC_LITERAL(36, 701, 33) // "on_horizontalSlider_3_sliderM..."
+QT_MOC_LITERAL(36, 701, 33), // "on_horizontalSlider_3_sliderM..."
+QT_MOC_LITERAL(37, 735, 23), // "on_pushButton_9_clicked"
+QT_MOC_LITERAL(38, 759, 24) // "on_pushButton_10_clicked"
 
     },
     "MainWindow\0on_horizontalSlider_sliderMoved\0"
@@ -87,7 +89,9 @@ QT_MOC_LITERAL(36, 701, 33) // "on_horizontalSlider_3_sliderM..."
     "on_pushButton_6_clicked\0"
     "on_tabWidget_2_tabBarClicked\0index\0"
     "on_pushButton_7_clicked\0on_pushButton_8_clicked\0"
-    "on_horizontalSlider_3_sliderMoved"
+    "on_horizontalSlider_3_sliderMoved\0"
+    "on_pushButton_9_clicked\0"
+    "on_pushButton_10_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -97,7 +101,7 @@ static const uint qt_meta_data_MainWindow[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      25,   14, // methods
+      27,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -105,31 +109,33 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    1,  139,    2, 0x08 /* Private */,
-       4,    1,  142,    2, 0x08 /* Private */,
-       5,    1,  145,    2, 0x08 /* Private */,
-       5,    0,  148,    2, 0x28 /* Private | MethodCloned */,
-       7,    1,  149,    2, 0x08 /* Private */,
-      10,    1,  152,    2, 0x08 /* Private */,
-      11,    0,  155,    2, 0x08 /* Private */,
-      12,    0,  156,    2, 0x08 /* Private */,
-      13,    0,  157,    2, 0x08 /* Private */,
-      14,    0,  158,    2, 0x08 /* Private */,
-      15,    1,  159,    2, 0x08 /* Private */,
-      16,    1,  162,    2, 0x08 /* Private */,
-      17,    1,  165,    2, 0x08 /* Private */,
-      18,    3,  168,    2, 0x08 /* Private */,
-      22,    1,  175,    2, 0x08 /* Private */,
-      23,    1,  178,    2, 0x08 /* Private */,
-      24,    1,  181,    2, 0x08 /* Private */,
-      25,    3,  184,    2, 0x08 /* Private */,
-      29,    0,  191,    2, 0x08 /* Private */,
-      30,    0,  192,    2, 0x08 /* Private */,
-      31,    0,  193,    2, 0x08 /* Private */,
-      32,    1,  194,    2, 0x08 /* Private */,
-      34,    0,  197,    2, 0x08 /* Private */,
-      35,    0,  198,    2, 0x08 /* Private */,
-      36,    1,  199,    2, 0x08 /* Private */,
+       1,    1,  149,    2, 0x08 /* Private */,
+       4,    1,  152,    2, 0x08 /* Private */,
+       5,    1,  155,    2, 0x08 /* Private */,
+       5,    0,  158,    2, 0x28 /* Private | MethodCloned */,
+       7,    1,  159,    2, 0x08 /* Private */,
+      10,    1,  162,    2, 0x08 /* Private */,
+      11,    0,  165,    2, 0x08 /* Private */,
+      12,    0,  166,    2, 0x08 /* Private */,
+      13,    0,  167,    2, 0x08 /* Private */,
+      14,    0,  168,    2, 0x08 /* Private */,
+      15,    1,  169,    2, 0x08 /* Private */,
+      16,    1,  172,    2, 0x08 /* Private */,
+      17,    1,  175,    2, 0x08 /* Private */,
+      18,    3,  178,    2, 0x08 /* Private */,
+      22,    1,  185,    2, 0x08 /* Private */,
+      23,    1,  188,    2, 0x08 /* Private */,
+      24,    1,  191,    2, 0x08 /* Private */,
+      25,    3,  194,    2, 0x08 /* Private */,
+      29,    0,  201,    2, 0x08 /* Private */,
+      30,    0,  202,    2, 0x08 /* Private */,
+      31,    0,  203,    2, 0x08 /* Private */,
+      32,    1,  204,    2, 0x08 /* Private */,
+      34,    0,  207,    2, 0x08 /* Private */,
+      35,    0,  208,    2, 0x08 /* Private */,
+      36,    1,  209,    2, 0x08 /* Private */,
+      37,    0,  212,    2, 0x08 /* Private */,
+      38,    0,  213,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void, QMetaType::Int,    3,
@@ -157,6 +163,8 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int,    3,
+    QMetaType::Void,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -192,6 +200,8 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 22: _t->on_pushButton_7_clicked(); break;
         case 23: _t->on_pushButton_8_clicked(); break;
         case 24: _t->on_horizontalSlider_3_sliderMoved((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 25: _t->on_pushButton_9_clicked(); break;
+        case 26: _t->on_pushButton_10_clicked(); break;
         default: ;
         }
     }
@@ -222,13 +232,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 25)
+        if (_id < 27)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 25;
+        _id -= 27;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 25)
+        if (_id < 27)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 25;
+        _id -= 27;
     }
     return _id;
 }

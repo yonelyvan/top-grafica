@@ -15,7 +15,7 @@ typedef vector<float> vf;
 typedef vector<vf> vvf;
 
 
-//suma y resta
+//suma y resta //brillo
 Mat brillo(Mat &image, int value){
     Mat new_image = Mat::zeros( image.size(), image.type() );
     for( int y = 0; y < image.rows; y++ ){
@@ -223,6 +223,73 @@ Mat suma_AB_a(Mat &image_A, Mat &image_B, float a){
 }
 
 //convoluciones
+int ker[3][3]={{0, -1, 0},
+                  {-1, 5, -1},
+                  {0, -1, 0}};
+
+
+vvi get_kernel(){
+    vvi kernel;
+    kernel.resize(3);
+    for (int i = 0; i < 3; ++i){
+        kernel[i].resize(3);
+        for (int j = 0; j < 3; ++j){
+            kernel[i][j] = ker[i][j];
+        }
+    }
+    return kernel;
+}
+
+vvf read_kernel(string file){
+    vvf kernel;
+    int f,c;
+    ifstream F(file);
+    F>> f >> c;
+    float val;
+    kernel.resize(f);
+    for (int i = 0; i < f; ++i){
+        kernel[i].resize(c);
+        for (int j = 0; j < c; ++j){
+            F>> kernel[i][j];
+        }
+    }
+    return kernel;
+}
+
+
+float aplicar_kernel(Mat &image, vvf kernel, int x, int y, int c){
+    int d = kernel.size()/2;
+    int lim_x = x-d;
+    int lim_y = y-d;
+    int img_ij;
+    float s=0;
+    for (int i = 0; i < kernel.size(); ++i) {
+        for (int j = 0; j < kernel[i].size(); ++j) {
+            img_ij = image.at<Vec3b>(lim_x+i, lim_y+j)[c];
+            s += img_ij*kernel[i][j];
+        }
+    }
+    return s;
+}
+
+Mat convolucion(Mat &image, string file ){
+    //get kernel from file
+    vvf kernel = read_kernel(file);
+    Mat new_image = Mat::zeros( image.size(), image.type() );
+    int d = kernel.size()/2;
+    int R = image.rows;
+    int C = image.cols;
+    //new_image = image;
+    for( int y = d; y < C-d; y++ ){
+        for( int x = d; x < R-d; x++ ){
+            for( int c = 0; c < 3; c++ ){
+                float r = aplicar_kernel(image, kernel, x,y,c);
+                new_image.at<Vec3b>(x,y)[c] = saturate_cast<uchar>(r);
+            }
+        }
+    }
+   return new_image;
+}
 
 
 

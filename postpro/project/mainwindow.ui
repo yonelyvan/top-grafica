@@ -30,14 +30,14 @@
    <widget class="QTabWidget" name="tabWidget_2">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>40</x>
       <y>10</y>
       <width>1261</width>
       <height>691</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab_3">
      <attribute name="title">
@@ -85,13 +85,13 @@
       <property name="geometry">
        <rect>
         <x>1010</x>
-        <y>0</y>
+        <y>80</y>
         <width>241</width>
-        <height>651</height>
+        <height>501</height>
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="tabBarAutoHide">
        <bool>false</bool>
@@ -199,20 +199,7 @@
          </rect>
         </property>
         <property name="text">
-         <string>Ecualizar (0-20%)</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>10</y>
-          <width>221</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Reiniciar Valores</string>
+         <string>Estiramiento (0-20%)</string>
         </property>
        </widget>
       </widget>
@@ -224,7 +211,7 @@
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>60</y>
+          <y>30</y>
           <width>201</width>
           <height>16</height>
          </rect>
@@ -233,24 +220,11 @@
          <string>Conversion - Escala de grises</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_2">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>10</y>
-          <width>211</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Reiniciar Valores</string>
-        </property>
-       </widget>
        <widget class="QPushButton" name="pushButton_3">
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>80</y>
+          <y>50</y>
           <width>201</width>
           <height>22</height>
          </rect>
@@ -478,6 +452,63 @@
         </property>
        </widget>
       </widget>
+      <widget class="QWidget" name="tab_8">
+       <attribute name="title">
+        <string>Filtros</string>
+       </attribute>
+       <widget class="QPushButton" name="pushButton_9">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>90</y>
+          <width>211</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Aplicar kernel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_15">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>60</y>
+          <width>191</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>null</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_10">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>21</y>
+          <width>201</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Seleccionar archivo</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>1010</x>
+        <y>20</y>
+        <width>221</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Reiniciar Valores</string>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_4">
@@ -658,6 +689,11 @@
        <string>seleccionar IMG B</string>
       </property>
      </widget>
+    </widget>
+    <widget class="QWidget" name="tab_7">
+     <attribute name="title">
+      <string>Tab 3</string>
+     </attribute>
     </widget>
    </widget>
   </widget>

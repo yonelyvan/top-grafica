@@ -33,7 +33,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = project1.0.0
-DISTDIR = /home/u/Desktop/postpro/top-grafica/postpro/project/.tmp/project1.0.0
+DISTDIR = /home/n/Desktop/grafica/top-grafica/postpro/project/.tmp/project1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-rpath,/opt/Qt5.7.0/5.7/gcc_64/lib
 LIBS          = $(SUBLIBS) `pkg-config opencv --cflags --libs` -L/opt/Qt5.7.0/5.7/gcc_64/lib -lQt5Widgets -L/usr/lib64 -lQt5Gui -lQt5Core -lGL -lpthread 
@@ -687,7 +687,7 @@ moc_mainwindow.cpp: /opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/QMainWindow \
 		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/QWidget \
 		mainwindow.h \
 		/opt/Qt5.7.0/5.7/gcc_64/bin/moc
-	/opt/Qt5.7.0/5.7/gcc_64/bin/moc $(DEFINES) -I/opt/Qt5.7.0/5.7/gcc_64/mkspecs/linux-g++ -I/home/u/Desktop/postpro/top-grafica/postpro/project -I/opt/Qt5.7.0/5.7/gcc_64/include -I/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets -I/opt/Qt5.7.0/5.7/gcc_64/include/QtGui -I/opt/Qt5.7.0/5.7/gcc_64/include/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include mainwindow.h -o moc_mainwindow.cpp
+	/opt/Qt5.7.0/5.7/gcc_64/bin/moc $(DEFINES) -I/opt/Qt5.7.0/5.7/gcc_64/mkspecs/linux-g++ -I/home/n/Desktop/grafica/top-grafica/postpro/project -I/opt/Qt5.7.0/5.7/gcc_64/include -I/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets -I/opt/Qt5.7.0/5.7/gcc_64/include/QtGui -I/opt/Qt5.7.0/5.7/gcc_64/include/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include mainwindow.h -o moc_mainwindow.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -968,9 +968,13 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/qmenu.h \
 		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/QMenuBar \
 		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/qmenubar.h \
+		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/qabstractbutton.h \
 		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/QSlider \
 		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/QStatusBar \
 		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/qstatusbar.h \
+		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/QTabWidget \
 		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/QToolBar \
 		/opt/Qt5.7.0/5.7/gcc_64/include/QtWidgets/qtoolbar.h \
 		funciones.cpp

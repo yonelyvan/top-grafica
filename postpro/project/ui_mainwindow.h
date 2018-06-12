@@ -45,10 +45,8 @@ public:
     QSlider *horizontalSlider_2;
     QSlider *hs_equalize;
     QLabel *label_4;
-    QPushButton *pushButton;
     QWidget *tab_2;
     QLabel *label_5;
-    QPushButton *pushButton_2;
     QPushButton *pushButton_3;
     QLabel *label_6;
     QSlider *horizontalSlider_convB;
@@ -64,6 +62,11 @@ public:
     QSlider *horizontalSlider_conv_CG;
     QSlider *horizontalSlider_conv_CR;
     QSlider *horizontalSlider_conv_CB;
+    QWidget *tab_8;
+    QPushButton *pushButton_9;
+    QLabel *label_15;
+    QPushButton *pushButton_10;
+    QPushButton *pushButton;
     QWidget *tab_4;
     QLabel *label_img_A;
     QLabel *label_img_B;
@@ -78,6 +81,7 @@ public:
     QWidget *tab_6;
     QPushButton *pushButton_4;
     QPushButton *pushButton_5;
+    QWidget *tab_7;
     QMenuBar *menuBar;
     QMenu *menuArchivo;
     QToolBar *mainToolBar;
@@ -97,7 +101,7 @@ public:
         label_3->setGeometry(QRect(60, 90, 59, 14));
         tabWidget_2 = new QTabWidget(centralWidget);
         tabWidget_2->setObjectName(QStringLiteral("tabWidget_2"));
-        tabWidget_2->setGeometry(QRect(20, 10, 1261, 691));
+        tabWidget_2->setGeometry(QRect(40, 10, 1261, 691));
         tab_3 = new QWidget();
         tab_3->setObjectName(QStringLiteral("tab_3"));
         label_histogram = new QLabel(tab_3);
@@ -112,7 +116,7 @@ public:
         label_img->setScaledContents(true);
         tabWidget = new QTabWidget(tab_3);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
-        tabWidget->setGeometry(QRect(1010, 0, 241, 651));
+        tabWidget->setGeometry(QRect(1010, 80, 241, 501));
         tabWidget->setTabBarAutoHide(false);
         tab = new QWidget();
         tab->setObjectName(QStringLiteral("tab"));
@@ -145,21 +149,15 @@ public:
         label_4 = new QLabel(tab);
         label_4->setObjectName(QStringLiteral("label_4"));
         label_4->setGeometry(QRect(11, 160, 171, 16));
-        pushButton = new QPushButton(tab);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(10, 10, 221, 31));
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QStringLiteral("tab_2"));
         label_5 = new QLabel(tab_2);
         label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setGeometry(QRect(10, 60, 201, 16));
-        pushButton_2 = new QPushButton(tab_2);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setGeometry(QRect(10, 10, 211, 31));
+        label_5->setGeometry(QRect(10, 30, 201, 16));
         pushButton_3 = new QPushButton(tab_2);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        pushButton_3->setGeometry(QRect(10, 80, 201, 22));
+        pushButton_3->setGeometry(QRect(10, 50, 201, 22));
         label_6 = new QLabel(tab_2);
         label_6->setObjectName(QStringLiteral("label_6"));
         label_6->setGeometry(QRect(10, 120, 181, 16));
@@ -221,6 +219,21 @@ public:
         horizontalSlider_conv_CB->setValue(50);
         horizontalSlider_conv_CB->setOrientation(Qt::Horizontal);
         tabWidget->addTab(tab_2, QString());
+        tab_8 = new QWidget();
+        tab_8->setObjectName(QStringLiteral("tab_8"));
+        pushButton_9 = new QPushButton(tab_8);
+        pushButton_9->setObjectName(QStringLiteral("pushButton_9"));
+        pushButton_9->setGeometry(QRect(20, 90, 211, 51));
+        label_15 = new QLabel(tab_8);
+        label_15->setObjectName(QStringLiteral("label_15"));
+        label_15->setGeometry(QRect(20, 60, 191, 20));
+        pushButton_10 = new QPushButton(tab_8);
+        pushButton_10->setObjectName(QStringLiteral("pushButton_10"));
+        pushButton_10->setGeometry(QRect(20, 21, 201, 31));
+        tabWidget->addTab(tab_8, QString());
+        pushButton = new QPushButton(tab_3);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setGeometry(QRect(1010, 20, 221, 41));
         tabWidget_2->addTab(tab_3, QString());
         tab_4 = new QWidget();
         tab_4->setObjectName(QStringLiteral("tab_4"));
@@ -272,6 +285,9 @@ public:
         pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
         pushButton_5->setGeometry(QRect(10, 400, 221, 31));
         tabWidget_2->addTab(tab_4, QString());
+        tab_7 = new QWidget();
+        tab_7->setObjectName(QStringLiteral("tab_7"));
+        tabWidget_2->addTab(tab_7, QString());
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -291,8 +307,8 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget_2->setCurrentIndex(1);
-        tabWidget->setCurrentIndex(0);
+        tabWidget_2->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
         tabWidget_3->setCurrentIndex(0);
 
 
@@ -308,11 +324,9 @@ public:
         label_img->setText(QString());
         label->setText(QApplication::translate("MainWindow", "Brillo (-255, 255)", 0));
         label_2->setText(QApplication::translate("MainWindow", "Contraste (0.0, 2.0)", 0));
-        label_4->setText(QApplication::translate("MainWindow", "Ecualizar (0-20%)", 0));
-        pushButton->setText(QApplication::translate("MainWindow", "Reiniciar Valores", 0));
+        label_4->setText(QApplication::translate("MainWindow", "Estiramiento (0-20%)", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Exposici\303\263n", 0));
         label_5->setText(QApplication::translate("MainWindow", "Conversion - Escala de grises", 0));
-        pushButton_2->setText(QApplication::translate("MainWindow", "Reiniciar Valores", 0));
         pushButton_3->setText(QApplication::translate("MainWindow", "convertir", 0));
         label_6->setText(QApplication::translate("MainWindow", "Convertir - Escala de grises", 0));
         label_7->setText(QApplication::translate("MainWindow", "R", 0));
@@ -323,6 +337,11 @@ public:
         label_12->setText(QApplication::translate("MainWindow", "B", 0));
         label_13->setText(QApplication::translate("MainWindow", "Transformaciones de color", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Color", 0));
+        pushButton_9->setText(QApplication::translate("MainWindow", "Aplicar kernel", 0));
+        label_15->setText(QApplication::translate("MainWindow", "null", 0));
+        pushButton_10->setText(QApplication::translate("MainWindow", "Seleccionar archivo", 0));
+        tabWidget->setTabText(tabWidget->indexOf(tab_8), QApplication::translate("MainWindow", "Filtros", 0));
+        pushButton->setText(QApplication::translate("MainWindow", "Reiniciar Valores", 0));
         tabWidget_2->setTabText(tabWidget_2->indexOf(tab_3), QApplication::translate("MainWindow", "Tab 1", 0));
         label_img_A->setText(QString());
         label_img_B->setText(QString());
@@ -336,6 +355,7 @@ public:
         pushButton_4->setText(QApplication::translate("MainWindow", "seleccionar IMG A", 0));
         pushButton_5->setText(QApplication::translate("MainWindow", "seleccionar IMG B", 0));
         tabWidget_2->setTabText(tabWidget_2->indexOf(tab_4), QApplication::translate("MainWindow", "Tab 2", 0));
+        tabWidget_2->setTabText(tabWidget_2->indexOf(tab_7), QApplication::translate("MainWindow", "Tab 3", 0));
         menuArchivo->setTitle(QApplication::translate("MainWindow", "archivo", 0));
     } // retranslateUi
 

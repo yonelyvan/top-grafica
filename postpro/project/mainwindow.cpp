@@ -263,3 +263,20 @@ void MainWindow::on_horizontalSlider_3_sliderMoved(int position){
     ui->label_result_AB->setPixmap(QPixmap::fromImage(image));
 
 }
+
+//convoluciones
+void MainWindow::on_pushButton_9_clicked(){
+    M_img_temp = convolucion(M_img ,ruta_archivo_kernel);
+    actualizar_vista(M_img_temp);
+}
+
+//seleccion archivo filtro convolucion
+void MainWindow::on_pushButton_10_clicked(){
+    QString rutaImagen = QFileDialog::getOpenFileName(this, tr("Abrir imagen"), QString(),
+    tr("Images (*.y *.txt *.conv)"));
+    ruta_archivo_kernel = rutaImagen.toUtf8().constData();
+    ui->label_15->setText(rutaImagen);
+    //M_img_A = imread(ruta_img_A);
+    //QImage image = MatToQImage(M_img_A);
+    //ui->label_img_A->setPixmap(QPixmap::fromImage(image));
+}

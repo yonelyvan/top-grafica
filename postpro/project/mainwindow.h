@@ -24,15 +24,16 @@ class MainWindow;
 class MainWindow : public QMainWindow{
     Q_OBJECT
 private:
-    string path_img="/home/u/Desktop/postpro/top-grafica/postpro/project/imgs/img.jpg";//PC
-   // string path_img="/home/n/Desktop/grafica/top-grafica/postpro/project/imgs/img.jpg";//le
+    //string path_img="/home/u/Desktop/postpro/top-grafica/postpro/project/imgs/img.jpg";//PC
+    string path_img="/home/n/Desktop/grafica/top-grafica/postpro/project/imgs/img.jpg";//LE
     //string path_img="/home/u/Desktop/postpro/top-grafica/postpro/project/imgs/img.jpg";//cs
     vvi histograma_RGB;
     Mat M_img_temp;
     Mat M_img;
 
-    string ruta_img_A="/home/u/Pictures/img-0.jpg";
-    string ruta_img_B="/home/u/Pictures/img-1.jpg";
+    string ruta_img_A="/home/n/Desktop/grafica/top-grafica/postpro/project/imgs/estiramiento.jpg";
+    string ruta_img_B="/home/n/Desktop/grafica/top-grafica/postpro/project/imgs/estiramiento2.jpg";
+    string ruta_archivo_kernel;
     Mat M_img_A;
     Mat M_img_B;
 
@@ -85,6 +86,10 @@ private slots:
     void on_pushButton_8_clicked();
 
     void on_horizontalSlider_3_sliderMoved(int position);
+
+    void on_pushButton_9_clicked();
+
+    void on_pushButton_10_clicked();
 
 private:
     Ui::MainWindow *ui;
