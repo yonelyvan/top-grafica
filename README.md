@@ -1,18 +1,24 @@
 # top-grafica
-tareas
-BMP
-	lectura, obtension de cabecera de la imagen, guardado
 
-operaciones elementales:
+Para el presente trabajo se usó la librería Opencv y QT como entorno de desarrollo.
+
+
+BMP 
+
+	lectura, obtención de cabecera de la imagen, guardado
+
+Operaciones elementales (brillo, contraste):
 
 	suma, resta, multicacion,divicion
-tranformacion de histograma:
+Tranformacion de histograma:
 
 	estiramiento de histograma
    
-  convinacion de imagenes:
+  Combinaciones de imagenes:
   
  	sumar, restar, suma ponderada
  Filtos y covoluciones:
  
  	cargar mascara desde archivo y se aplica sobre la imagen (en serial)
+    
+Las capturas de pantalla se muestra en la carpeta "capturas".
