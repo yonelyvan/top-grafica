@@ -78,10 +78,8 @@ public:
     QPushButton *pushButton_8;
     QLabel *label_14;
     QSlider *horizontalSlider_3;
-    QWidget *tab_6;
     QPushButton *pushButton_4;
     QPushButton *pushButton_5;
-    QWidget *tab_7;
     QMenuBar *menuBar;
     QMenu *menuArchivo;
     QToolBar *mainToolBar;
@@ -91,7 +89,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(1271, 749);
+        MainWindow->resize(1302, 746);
         actionAbrir = new QAction(MainWindow);
         actionAbrir->setObjectName(QStringLiteral("actionAbrir"));
         centralWidget = new QWidget(MainWindow);
@@ -101,7 +99,7 @@ public:
         label_3->setGeometry(QRect(60, 90, 59, 14));
         tabWidget_2 = new QTabWidget(centralWidget);
         tabWidget_2->setObjectName(QStringLiteral("tabWidget_2"));
-        tabWidget_2->setGeometry(QRect(40, 10, 1261, 691));
+        tabWidget_2->setGeometry(QRect(20, 10, 1281, 691));
         tab_3 = new QWidget();
         tab_3->setObjectName(QStringLiteral("tab_3"));
         label_histogram = new QLabel(tab_3);
@@ -275,9 +273,6 @@ public:
         horizontalSlider_3->setMaximum(10);
         horizontalSlider_3->setOrientation(Qt::Horizontal);
         tabWidget_3->addTab(tab_5, QString());
-        tab_6 = new QWidget();
-        tab_6->setObjectName(QStringLiteral("tab_6"));
-        tabWidget_3->addTab(tab_6, QString());
         pushButton_4 = new QPushButton(tab_4);
         pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
         pushButton_4->setGeometry(QRect(10, 41, 221, 31));
@@ -285,13 +280,10 @@ public:
         pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
         pushButton_5->setGeometry(QRect(10, 400, 221, 31));
         tabWidget_2->addTab(tab_4, QString());
-        tab_7 = new QWidget();
-        tab_7->setObjectName(QStringLiteral("tab_7"));
-        tabWidget_2->addTab(tab_7, QString());
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 1271, 19));
+        menuBar->setGeometry(QRect(0, 0, 1302, 19));
         menuArchivo = new QMenu(menuBar);
         menuArchivo->setObjectName(QStringLiteral("menuArchivo"));
         MainWindow->setMenuBar(menuBar);
@@ -307,7 +299,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget_2->setCurrentIndex(0);
+        tabWidget_2->setCurrentIndex(1);
         tabWidget->setCurrentIndex(1);
         tabWidget_3->setCurrentIndex(0);
 
@@ -351,11 +343,9 @@ public:
         pushButton_8->setText(QApplication::translate("MainWindow", "(A + B)/2", 0));
         label_14->setText(QApplication::translate("MainWindow", "a*A + (1-a)*B", 0));
         tabWidget_3->setTabText(tabWidget_3->indexOf(tab_5), QApplication::translate("MainWindow", "Tab 1", 0));
-        tabWidget_3->setTabText(tabWidget_3->indexOf(tab_6), QApplication::translate("MainWindow", "Tab 2", 0));
         pushButton_4->setText(QApplication::translate("MainWindow", "seleccionar IMG A", 0));
         pushButton_5->setText(QApplication::translate("MainWindow", "seleccionar IMG B", 0));
         tabWidget_2->setTabText(tabWidget_2->indexOf(tab_4), QApplication::translate("MainWindow", "Tab 2", 0));
-        tabWidget_2->setTabText(tabWidget_2->indexOf(tab_7), QApplication::translate("MainWindow", "Tab 3", 0));
         menuArchivo->setTitle(QApplication::translate("MainWindow", "archivo", 0));
     } // retranslateUi
 

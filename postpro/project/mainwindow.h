@@ -31,8 +31,8 @@ private:
     Mat M_img_temp;
     Mat M_img;
 
-    string ruta_img_A="/home/n/Desktop/grafica/top-grafica/postpro/project/imgs/estiramiento.jpg";
-    string ruta_img_B="/home/n/Desktop/grafica/top-grafica/postpro/project/imgs/estiramiento2.jpg";
+    string ruta_img_A="/home/n/Desktop/grafica/top-grafica/postpro/project/imgs/images-0.jpg";
+    string ruta_img_B="/home/n/Desktop/grafica/top-grafica/postpro/project/imgs/images-1.jpg";
     string ruta_archivo_kernel;
     Mat M_img_A;
     Mat M_img_B;
